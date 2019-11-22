@@ -46,8 +46,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 // For admin dashbord
 
 Route::group(['middleware' => ['auth','admin']], function (){
-	Route::get('/admin', function(){
+	Route::get('/dashboard', function(){
 		return view('admin.dashboard');
 	});
 	Route::get('/registered','Admin\DashboardController@registered');
+
+	Route::get('/role-edit/{id}','Admin\DashboardController@registeredEdit');
+
+	Route::put('/registered-update/{id}','Admin\DashboardController@registeredUpdate');
 });

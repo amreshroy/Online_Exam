@@ -13,4 +13,19 @@ class DashboardController extends Controller
     	$users = User::all();
     	return view('admin.registered')->with('users',$users);
     }
+    public function registeredEdit(Request $request, $id)
+    {
+    	$users = User::findOrFail($id);
+    	return view('admin.registered-edit')->with('users', $users);
+    }
+
+    public function registeredUpdate(Request $request, $id)
+    {
+        $users = User::find($id);
+        $users->name = $request->input('username');
+        $users->usertype = $request->input('usertype');
+        $users->update();
+
+        return redirect('/registered')->with('success','Your Data is Updated'); 
+    }
 }
