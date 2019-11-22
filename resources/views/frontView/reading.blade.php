@@ -1,0 +1,1 @@
+reading.blade.php
