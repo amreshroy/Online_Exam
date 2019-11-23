@@ -28,4 +28,11 @@ class DashboardController extends Controller
 
         return redirect('/registered')->with('success','Your Data is Updated'); 
     }
+    public function registeredDelete($id)
+    {
+        $users = User::findOrFail($id);
+        $users->delete();
+
+        return redirect('/registered')->with('success','You Delete One Users');
+    }
 }

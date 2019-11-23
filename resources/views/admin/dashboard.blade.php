@@ -21,7 +21,7 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
-                    <thead class=" text-primary">
+                    <!-- <thead class=" text-primary">
                       <th> Nam </th>
                       <th> Countr </th>
                       <th> Cit </th>
@@ -32,8 +32,8 @@
                         <td> Dakota Ric </td>
                         <td> Nige </td>
                         <td> Oud-Turnhou </td>
-                        <td class="text-right"> $36,73 </td>
-                      </tr>
+                        <td class="text-right"> 36,73 </td>
+                      </tr> -->
                       
                     </tbody>
                   </table>

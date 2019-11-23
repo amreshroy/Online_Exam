@@ -37,8 +37,16 @@
                         <td> {{ $user->name }}</td>
                         <td> {{ $user->email }} </td>
                         <td> {{ $user->usertype }} </td>
-                        <td> <a href="/role-edit/{{ $user->id }}" class="btn btn-success">Edit </a> </td>
-                        <td> <a href="#" class="btn btn-danger">Delete </a> </td>
+                        <td> 
+                          <a href="/role-edit/{{ $user->id }}" class="btn btn-success">Edit </a> 
+                        </td>
+                        <td> 
+                          <form action="/role-delete/{{ $user->id }}" method="post">
+                          {{ csrf_field() }}
+                          {{ method_field('DELETE') }}
+                          <button type="submit" class="btn btn-danger">Delete </button>
+                          </form>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
