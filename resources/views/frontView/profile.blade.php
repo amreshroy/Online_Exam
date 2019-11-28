@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
 
+ 
+
+
 <?php
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header("Cache-Control: pre-check=0, post-check=0, max-age=0"); 
@@ -30,7 +33,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         <section class="maincontent">
         <div class="menu">
         <ul>
-            
+            <!-- <li><a href="{{ route('login') }}">Login</a></li> -->
             <li><a href="{{ url('Profile') }}">Profile</a></li>
             <li><a href="{{ url('Reading') }}">Reading</a></li>
             <li><a href="{{ url('Practice') }}">Practice</a></li>
@@ -41,21 +44,31 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         </div>
 
 <div class="main">
-    <div class="table-responsive">
+ <div class="table-responsive">
       <table class="table">
         <tbody>
-            @foreach($data as $i)
-          <tr>
-            <td> {{ $i->title }}</td>
-          </tr>
-
-          <tr>
-            <td> {{ $i->documment }} </td>
-          </tr>
-          @endforeach
+           @foreach ($users as $user)
+                      <tr>
+                        <td> {{ $user->id }}</td>
+                        <td> {{ $user->name }}</td>
+                        <td> {{ $user->email }} </td>
+                        <td> {{ $user->usertype }} </td>
+                        <td> 
+                          <a href="/role-edit/{{ $user->id }}" class="btn btn-success">Edit </a> 
+                        </td>
+                        <!-- <td> 
+                          <form action="/role-delete/{{ $user->id }}" method="post">
+                          {{ csrf_field() }}
+                          {{ method_field('DELETE') }}
+                          <button type="submit" class="btn btn-danger">Delete </button>
+                          </form>
+                        </td> -->
+                      </tr>
+                      @endforeach
         </tbody>
       </table>
-    </div>
+    </div> 
+    
 </div>
  </section>
 <section class="footeroption">

@@ -1,1 +1,1 @@
-exam.blade.php
+exam page

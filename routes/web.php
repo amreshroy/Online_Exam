@@ -32,7 +32,7 @@ Route::get('/about-us', 'FrontViewController@about');
 
 
 // menu for user home pages link
-Route::get('/Reading', 'HomeController@reading');
+// Route::get('/Reading', 'HomeController@reading');
 
 Route::get('/Practice', 'HomeController@practice');
 
@@ -41,6 +41,12 @@ Route::get('/Exam', 'HomeController@exam');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/Profile', 'HomeController@profile');
+
+// Route::get('/Profile', 'ProfileController@profile');
+
+Route::get('/Reading', 'PostController@post');
 
 
 // For admin dashbord
@@ -54,5 +60,11 @@ Route::group(['middleware' => ['auth','admin']], function (){
 	Route::get('/role-edit/{id}','Admin\DashboardController@registeredEdit');
 
 	Route::put('/registered-update/{id}','Admin\DashboardController@registeredUpdate');
+	
 	Route::delete('/role-delete/{id}','Admin\DashboardController@registeredDelete');
+
+	Route::get('/reading-controls','Admin\ReadingController@readingControls');
 });
+
+
+

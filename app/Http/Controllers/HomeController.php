@@ -25,9 +25,9 @@ class HomeController extends Controller
     {
         return view('home'); 
     }
-    public function reading()
+    public function profile()
     {
-        return view('frontView.reading');
+        return view('frontView.profile');
     }
     public function practice()
     {

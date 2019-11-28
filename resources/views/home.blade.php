@@ -46,7 +46,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         <div class="menu">
         <ul>
             <!-- <li><a href="{{ route('login') }}">Login</a></li> -->
-            <li><a href="{{ url('profile') }}">Profile</a></li>
+            <li><a href="{{ url('Profile') }}">Profile</a></li>
             <li><a href="{{ url('Reading') }}">Reading</a></li>
             <li><a href="{{ url('Practice') }}">Practice</a></li>
             <li><a href="{{ url('Exam') }}">Exam</a></li>
@@ -64,7 +64,6 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
  </section>
 <section class="footeroption">
         <h2><?php echo "Online Exam System"; ?></h2><br/>
-        <p><?php echo "This site is make for research perpase"?></p>
     </section>
 </div>
 </body>

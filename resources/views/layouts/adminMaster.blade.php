@@ -24,15 +24,7 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="orange"><!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
-    <!--   <a href="http://www.#.com" class="simple-text logo-normal">
-          
-        
-        </a>
-      </div><div class="logo">
-        <a href="http://www.#.com" class="simple-text logo-mini">
-        
-        </a> -->
+    <div class="sidebar" data-color="orange">
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="{{ 'dashboard' == request()->path() ? 'active' : '' }}">
@@ -41,22 +33,22 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{ '#' == request()->path() ? 'active' : '' }}">
+          <!-- <li class="{{ '#' == request()->path() ? 'active' : '' }}">
             <a href="./icons.html">
               <i class="now-ui-icons education_atom"></i>
               <p>Icons</p>
             </a>
-          </li>
-          <li class="{{ '#' == request()->path() ? 'active' : '' }}">
+          </li> -->
+          <!-- <li class="{{ '#' == request()->path() ? 'active' : '' }}">
             <a href="./map.html">
               <i class="now-ui-icons location_map-big"></i>
               <p>Maps</p>
             </a>
-          </li>
-          <li class="{{ '#' == request()->path() ? 'active' : '' }}">
-            <a href="./notifications.html">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
+          </li> -->
+          <li class="{{ 'reading-controls' == request()->path() ? 'active' : '' }}">
+            <a href="/reading-controls">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Reading Controls</p>
             </a>
           </li>
           <li class="{{ 'registered' == request()->path() ? 'active' : '' }}">
@@ -65,7 +57,7 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="{{ '#' == request()->path() ? 'active' : '' }}">
+         <!--  <li class="{{ '#' == request()->path() ? 'active' : '' }}">
             <a href="./tables.html">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Table List</p>
@@ -76,7 +68,7 @@
               <i class="now-ui-icons text_caps-small"></i>
               <p>Typography</p>
             </a>
-          </li>
+          </li> -->
           
         </ul>
       </div>
@@ -86,20 +78,20 @@
       <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <div class="navbar-toggle">
+            <!-- <div class="navbar-toggle">
               <button type="button" class="navbar-toggler">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
-            </div>
+            </div> -->
             <a class="navbar-brand" href="#pablo">Table List</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+         <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
+          </button> -->
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <form>
               <div class="input-group no-border">
@@ -112,14 +104,14 @@
               </div>
             </form>
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons media-2_sound-wave"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Stats</span>
                   </p>
                 </a>
-              </li>
+              </li> -->
 
               <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -151,14 +143,14 @@
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
               </li> -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -176,35 +168,7 @@
       <!-- 19-11-19 -->
        
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav>
-            <ul>
-              <li>
-                <a href="https://www.facebook.com">
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a href="http://whatsapp.com">
-                  Whatsapp
-                </a>
-              </li>
-              <li>
-                <a href="http://youtube.com">
-                  Youtube
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright" id="copyright">
-            &copy;
-            <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed 
-          </div>
-        </div>
-      </footer>
+      
     </div>
   </div>
   <!--   Core JS Files   -->

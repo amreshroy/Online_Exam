@@ -53,7 +53,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         <h2><?php echo "Online Exam System"; ?></h2><br/>
         
 
-        <div class="fotter_top_area">
+  <!--       <div class="fotter_top_area">
     <div class="container footer">
         <div class="row">
 
@@ -80,7 +80,37 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
            
         </div>
     </div>
-</div>
+</div> -->
+
+<footer class="footer">
+        <!-- <div class="container-fluid">
+          <nav>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com">
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a href="http://whatsapp.com">
+                  Whatsapp
+                </a>
+              </li>
+              <li>
+                <a href="http://youtube.com">
+                  Youtube
+                </a>
+              </li>
+            </ul>
+          </nav> -->
+          <div class="copyright" id="copyright">
+            &copy;
+            <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script>, Designed 
+          </div>
+        </div>
+      </footer>
 
     </section>
 </div>

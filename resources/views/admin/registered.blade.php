@@ -23,7 +23,7 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th> ID </th>
+                      <!-- <th> ID </th> -->
                       <th> Name </th>
                       <th> Email </th>
                       <th> Usertype </th>
@@ -33,7 +33,7 @@
                     <tbody>
                     	@foreach ($users as $user)
                       <tr>
-                        <td> {{ $user->id }}</td>
+                        <!-- <td> {{ $user->id }}</td> -->
                         <td> {{ $user->name }}</td>
                         <td> {{ $user->email }} </td>
                         <td> {{ $user->usertype }} </td>
