@@ -60,7 +60,6 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
  </section>
 <section class="footeroption">
         <h2><?php echo "Online Exam System"; ?></h2><br/>
-        <p><?php echo "This site is make for research perpase"?></p>
     </section>
 </div>
 </body>

@@ -44,7 +44,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/Profile', 'HomeController@profile');
 
-// Route::get('/Profile', 'ProfileController@profile');
+Route::get('/Profile', 'ProfileController@profile');
 
 Route::get('/Reading', 'PostController@post');
 

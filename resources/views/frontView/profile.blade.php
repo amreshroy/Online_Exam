@@ -46,17 +46,25 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 <div class="main">
  <div class="table-responsive">
       <table class="table">
+      	<thead class=" text-primary">
+                      <!-- <th> ID </th> -->
+                      <th> Name </th>
+                      <th> Email </th>
+                      <th> Usertype </th>
+                      <!-- <th> Edit </th> -->
+                      <!-- <th> Delete </th> -->
+                    </thead>
         <tbody>
            @foreach ($users as $user)
                       <tr>
-                        <td> {{ $user->id }}</td>
+                        <!-- <td> {{ $user->id }}</td> -->
                         <td> {{ $user->name }}</td>
                         <td> {{ $user->email }} </td>
                         <td> {{ $user->usertype }} </td>
-                        <td> 
+                        <!-- <td> 
                           <a href="/role-edit/{{ $user->id }}" class="btn btn-success">Edit </a> 
                         </td>
-                        <!-- <td> 
+                        <td> 
                           <form action="/role-delete/{{ $user->id }}" method="post">
                           {{ csrf_field() }}
                           {{ method_field('DELETE') }}
@@ -73,7 +81,6 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
  </section>
 <section class="footeroption">
         <h2><?php echo "Online Exam System"; ?></h2><br/>
-        <p><?php echo "This site is make for research perpase"?></p>
     </section>
 </div>
 </body>
