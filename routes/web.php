@@ -36,7 +36,7 @@ Route::get('/about-us', 'FrontViewController@about');
 
 Route::get('/Practice', 'HomeController@practice');
 
-Route::get('/Exam', 'HomeController@exam');
+// Route::get('/Exam', 'HomeController@exam');
 
 Auth::routes();
 
@@ -47,6 +47,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/Profile', 'ProfileController@profile');
 
 Route::get('/Reading', 'PostController@post');
+
+// For Quize section
+
+// Route::prefix('api')->group(function() {
+    Route::get('Exam', 'QuizController@view');
+	Route::resource('quiz', 'QuizController');
+// });
+	
+
 
 
 // For admin dashbord

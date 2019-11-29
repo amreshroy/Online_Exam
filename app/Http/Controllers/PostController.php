@@ -14,3 +14,4 @@ class PostController extends Controller
     	// return Reading::all();
     }
 }
+
