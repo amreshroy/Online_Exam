@@ -41,22 +41,22 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         </div>
 
 <div class="main">
-    <div class="table-responsive">
+    <div class="table-responsive"> 
       <table class="table">
         <tbody>
-           
-            @foreach($data as $i)
          <tr>
-            <td> <a href="{{ url('showreading/'.$i->id) }}"> {{ $i->title }} </a></td>
+            @foreach($data as $i)
+            <td> {{ $i->title }} </td>
           </tr>
           <tr>
-            <td> {{ Str::words($i->doc,20) }} </td>
+            <td> {{ $i->doc }} </td>
           </tr>
-
           @endforeach
         </tbody>
       </table>
+
       {{ $data->links() }}
+
     </div>
 </div>
  </section>

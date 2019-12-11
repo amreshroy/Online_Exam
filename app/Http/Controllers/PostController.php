@@ -7,11 +7,20 @@ use App\Reading;
 
 class PostController extends Controller
 {
-    function post()
+    public function post()
     {
-    	$data = Reading::all();
-    	return view('frontView.reading',['data'=>$data]);
-    	// return Reading::all();
+    	
+        $data = Reading::paginate(3);
+
+        return view('frontView.reading')->with('data',$data);
+    	
     }
-}
+
+    public function show($id)
+    {
+        $data = Reading::where('id',$id)->paginate(1);
+        return view('frontView.showreading')->with('data',$data);
+    }
+    
+} 
 

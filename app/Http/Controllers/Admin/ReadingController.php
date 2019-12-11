@@ -1,94 +1,49 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Reading;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ReadingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function readingControls()
     {
-          return view('admin.reading-controls');
+        $users = Reading::all();
+        return view('admin.reading-controls')->with('users',$users);
+    }
+    public function readingStore(Request $request)
+    {
+        $users = new Reading;
+        $users->title = $request->input('title');
+        $users->documment = $request->input('documment');
+
+        $users->save();
+        return redirect('/reading-controls')->with('sucess','Data Added for Reading Topic');
+    }
+    public function readingEdit(Request $request, $id)
+    {
+        $users = Reading::findOrFail($id);
+        return view('admin.reading-edit')->with('users', $users);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function readingUpdate(Request $request, $id)
     {
-        // return view('admin.create');
-    }
+        $users = Reading::find($id);
+        $users->title = $request->input('username');
+        $users->documment = $request->input('text');
+        $users->update();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // $this->validate($request, [
-        //     'first_name'  => 'required',
-        //     'last_name'   => 'required'
-        // ]);
-        // $reading = new Reading([
-        //     'first_name'    => $request->get('first_name'),
-        //     'last_name' => $request->get('last_name')
-        // ]);
-        // $reading->save();
-        // return redirect()->route('admin.create')->with('success', 'Data Added');
+        return redirect('/reading-controls')->with('success','Your Data is Updated'); 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function readingDelete($id)
     {
-        //
-    }
+        $users = Reading::findOrFail($id);
+        $users->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect('/reading-controls')->with('success','You Delete One Users');
     }
 }
+ 
+

@@ -1,5 +1,6 @@
  *{margin:0;padding:0;outline:none}
- body{font-family:verdana}.phpcoding{width:900px; margin: 0 auto;background:#ddd}
+ body{background-color: #0d6c7b}
+ body{font-family:verdana;}.phpcoding{width:900px; margin: 0 auto;background:#ddd}
  .headeroption {
   background: #444 url("../img/banner1.png") no-repeat scroll 0 0;
   border-bottom: 2px solid #444444;
@@ -30,7 +31,7 @@ input[type="submit"] {
  table.tblone tr:nth-child(2n){background:#f1f1f1;height:30px;}
 
 .main {
-  background: #fff none repeat scroll 0 0;
+  background: #bbbbbbb8  none repeat scroll 0 0;
   border: 1px solid #999;
   margin-top: 10px;
   min-height: 368px;

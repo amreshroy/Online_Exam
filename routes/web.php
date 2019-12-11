@@ -11,68 +11,65 @@
 |
 */
 
+// Before login menu For welcome pages link
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-//  <!-- 19-11-19 -->
-// Route::get('/admin', function () {
-//     return view('admin.dashboard');
-// });
-//  <!-- 19-11-19 -->
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-// menu For welcome pages link
 Route::get('/contact-us', 'FrontViewController@contact');
 
 Route::get('/about-us', 'FrontViewController@about');
 
 
-// menu for user home pages link
-// Route::get('/Reading', 'HomeController@reading');
-
-Route::get('/Practice', 'HomeController@practice');
-
-// Route::get('/Exam', 'HomeController@exam');
+// After login menu for user home pages link
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('/Profile', 'HomeController@profile');
-
 Route::get('/Profile', 'ProfileController@profile');
-
 Route::get('/Reading', 'PostController@post');
+Route::get('/showreading/{id}', 'PostController@show');
 
-// For Quize section
+// For Exam Section
 
+Route::get('/Practice', 'HomeController@practice');
 // Route::prefix('api')->group(function() {
     Route::get('Exam', 'QuizController@view');
-	Route::resource('quiz', 'QuizController');
+	// Route::resource('quiz', 'QuizController');
 // });
 	
 
-
-
-// For admin dashbord
+// For Admin Dashboard
 
 Route::group(['middleware' => ['auth','admin']], function (){
-	Route::get('/dashboard', function(){
+	Route::get('/Admin', function(){
 		return view('admin.dashboard');
 	});
-	Route::get('/registered','Admin\DashboardController@registered');
 
-	Route::get('/role-edit/{id}','Admin\DashboardController@registeredEdit');
+// For Users Section
 
-	Route::put('/registered-update/{id}','Admin\DashboardController@registeredUpdate');
-	
-	Route::delete('/role-delete/{id}','Admin\DashboardController@registeredDelete');
+Route::get('/registered','Admin\DashboardController@registered');
+Route::get('/role-edit/{id}','Admin\DashboardController@registeredEdit');
+Route::put('/registered-update/{id}','Admin\DashboardController@registeredUpdate');
+Route::delete('/role-delete/{id}','Admin\DashboardController@registeredDelete');
 
-	Route::get('/reading-controls','Admin\ReadingController@readingControls');
+// For Reading Section
+
+Route::get('/reading-controls','Admin\ReadingController@readingControls');
+Route::post('/reading-controls','Admin\ReadingController@readingControls');
+Route::get('/reading-edit/{id}','Admin\ReadingController@readingEdit');
+Route::put('/reading-update/{id}','Admin\ReadingController@readingUpdate');
+Route::delete('/reading-delete/{id}','Admin\ReadingController@readingDelete');
+
+
+Route::get('/abouts','Admin\AboutusController@index');
+Route::post('/save-aboutus','Admin\AboutusController@store');
+Route::resource('/abouts','Admin\AboutusController');
+Route::get('/about-us/{id}','Admin\AboutusController@edit');
+Route::put('/about-us-update/{id}','Admin\AboutusController@update');
+Route::resource('/about-us','Admin\AboutusController');
+Route::delete('/about-us-delete/{id}','Admin\AboutusController@delete');
+
 });
 
 

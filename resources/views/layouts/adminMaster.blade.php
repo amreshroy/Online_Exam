@@ -28,7 +28,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="{{ 'dashboard' == request()->path() ? 'active' : '' }}">
-            <a href="/dashboard">
+            <a href="/Admin">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -57,18 +57,18 @@
               <p>User Profile</p>
             </a>
           </li>
-         <!--  <li class="{{ '#' == request()->path() ? 'active' : '' }}">
-            <a href="./tables.html">
+          <li class="{{ 'abouts' == request()->path() ? 'active' : '' }}">
+            <a href="/abouts">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
+              <p>Reading Topic</p>
             </a>
           </li>
           <li class="{{ '#' == request()->path() ? 'active' : '' }}">
-            <a href="./typography.html">
+            <a href="/typography.html">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Typography</p>
             </a>
-          </li> -->
+          </li>
           
         </ul>
       </div>
