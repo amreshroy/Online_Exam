@@ -8,4 +8,4 @@ use App\Profile;
 class Profile extends Model
 {
     protected $table = 'users';
-}
+} 

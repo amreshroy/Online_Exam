@@ -1,17 +1,39 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\User;
+namespace App\Http\Controllers; 
+
+use App\Profile;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
     public function profile()
     {
-    	$users = User::all();
+    	$users = Profile::all();
     	return view('frontView.profile')->with('users',$users);
     }
+
+
+
+    // public function edit($id)
+    // {
+    //     $aboutus = Abouts::findOrFail($id);
+    //     return view('admin.abouts.edit')->with('aboutus',$aboutus);
+    // }
+    // public function update(Request $request, $id)
+    // {
+    //     $aboutus = Abouts::findOrFail($id);
+    //     $aboutus->title = $request->input('title');
+    //     $aboutus->doc = $request->input('doc');
+    //     $aboutus->update();
+
+    //     return redirect('abouts')->with('status','Data Update for Topic Table');
+    // }
+
+
+
     // public function registeredEdit(Request $request, $id)
     // {
     // 	$users = User::findOrFail($id);
