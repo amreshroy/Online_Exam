@@ -1,12 +1,4 @@
-
-@extends('layouts.adminMaster')
-
-
-@section('title')
-
-	|Edit Registered Users |
-
-@endsection
+@extends('layouts.app')
 
 @section('content')
 
@@ -18,23 +10,29 @@
 					<h3> Edit Registered User Details</h3>
 				</div>
 				<div class="card-body">
-					<form action="/registered-update/{{ $users->id }}" method="POST">
+					<form action="/Profile-update/{{ Auth::user()->id }}" method="POST">
 						{{ csrf_field() }}
 						{{ method_field('PUT') }}
 						<div class="form-group">
 						    <label> Name </label>
-						    <input type="text" name="username" value="{{ $users->name }}"class="form-control">
+						    <input type="text" name="username" value="{{ Auth::user()->name }}" class="form-control">
 						</div>
 						<div class="form-group">
-							<label> Give Role </label>
-							<select name="usertype" class="form-control">
-								<option value="Regular">Regular User</option>
-								<option value="admin">Admin</option>
-								<option value="Normal">Normal User</option>
-							</select>
+						    <label> E-mail </label>
+						    <input type="text" name="" value="{{ Auth::user()->email }}" class="form-control">
 						</div>
+						<div class="form-group">
+						    <label> Phone Number </label>
+						    <input type="number" name="" value="" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label> Address </label>
+						    <input type="text" name="" value="" class="form-control">
+						</div>
+						
+						
 						<button type="submit" class="btn btn-success">Update</button>
-						<a href="/registered" class="btn btn-danger">Cancel</a>
+						<a href="/Profile" class="btn btn-danger">Cancel</a>
 					</form>
 				</div>
 			</div>

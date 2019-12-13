@@ -26,7 +26,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
     <script src="{{asset('js/app.js')}}"></script>
 
 </head>
-<body>
+<body style="background-color: #0c5460">
 
 <div class="phpcoding">
     <section class="headeroption"></section>

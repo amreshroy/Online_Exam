@@ -27,6 +27,12 @@ Route::get('/about-us', 'FrontViewController@about');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/Profile', 'ProfileController@profile');
+
+Route::get('/Profile', 'ProfileController@profile');
+Route::get('/Profile-edit/{id}', 'ProfileController@profileedit');
+Route::put('/Profile-update/{id}', 'ProfileController@profileUpdate');
+Route::resource('/about-edit','ProfileController');
+
 Route::get('/Reading', 'PostController@post');
 Route::get('/showreading/{id}', 'PostController@show');
 

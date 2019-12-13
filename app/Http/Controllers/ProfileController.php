@@ -1,20 +1,34 @@
 <?php
 
 namespace App\Http\Controllers; 
-
 use App\Profile;
+
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth;
 
 class ProfileController extends Controller
 {
     public function profile()
     {
-    	$users = Profile::all();
+    	// $users = Profile::all();
+        $users =  Profile::paginate(1);
     	return view('frontView.profile')->with('users',$users);
     }
+    public function profileedit(Request $request, $id)
+    {
+        $users = Profile::findOrFail($id);
+        return view('frontView.profile-edit')->with('users', $users);
+    }
+    public function profileUpdate(Request $request, $id)
+    {
+        $users = Profile::find($id);
+        $users->name = $request->input('username');
+        $users->usertype = $request->input('usertype');
+        $users->update();
 
+        return redirect('/Profile')->with('success','Your Data is Updated'); 
+    }
 
 
     // public function edit($id)
