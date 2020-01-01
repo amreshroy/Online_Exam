@@ -31,6 +31,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         <div class="menu">
         <ul>
             
+            <li><a href="{{ url('home') }}">Home</a></li>
             <li><a href="{{ url('Profile') }}">Profile</a></li>
             <li><a href="{{ url('Reading') }}">Reading</a></li>
             <li><a href="{{ url('Practice') }}">Practice</a></li>
@@ -77,6 +78,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
       {{ $data->links() }}
 
     </div>
+    <button><a class="btn btn-info" href="{{ url('Reading') }}">Go Back</a></button>
 </div>
  </section>
 <section class="footeroption">

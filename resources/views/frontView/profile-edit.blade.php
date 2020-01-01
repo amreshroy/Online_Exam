@@ -23,14 +23,12 @@
 						</div>
 						<div class="form-group">
 						    <label> Phone Number </label>
-						    <input type="number" name="" value="" class="form-control">
+						    <input type="number" name="" value="{{ Auth::user()->phone }}" class="form-control">
 						</div>
 						<div class="form-group">
 						    <label> Address </label>
-						    <input type="text" name="" value="" class="form-control">
+						    <input type="text" name="" value="{{ Auth::user()->address }}" class="form-control">
 						</div>
-						
-						
 						<button type="submit" class="btn btn-success">Update</button>
 						<a href="/Profile" class="btn btn-danger">Cancel</a>
 					</form>

@@ -10,7 +10,7 @@ class FrontViewController extends Controller
     {
         return view('FrontView.contact');
     }
-    public function about()
+    public function aboutPage()
     {
         return view('FrontView.about');
     }

@@ -1,125 +1,96 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Quiz;
+use App\Question;
+use App\Answer;
+use App\CorrectAnswer;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class QuizController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-         // return Quiz::latest()->get();
+        $this->middleware('auth'); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function index(Request $request)
     {
-        //
+        $quizzes = Quiz::all();
+        return view('frontView.index', compact('quizzes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function show(Quiz $quiz) {
+ 
+        return view('frontView.show', compact('quiz'));
+
+    }
+
+    public function result(Request $request) {
+
+        $data = $request->all();
+        $answers_array = [];
+        $correct_answers_array = [];
+        $correct_answers_array_filtered = [];
+        $question_count = 0;
+        foreach ($data as $key => $datum) {
+            if($key != '_token' && $key != 'invisible') {
+                $answers_array[$key] = $datum;
+                $correct_answers_array[] =  json_decode(DB::table('correct_answers')->where('question_id', $key)->get(), true);
+                $question_count++;
+            }
+        }
+        foreach ($correct_answers_array as $correct_answer) {
+            $correct_answers_array_filtered[$correct_answer[0]['question_id']] = $correct_answer[0]['answer_id'];
+        }
+        $correct_answers_count = count(array_intersect($answers_array, $correct_answers_array_filtered));
+
+        return view('frontView.result', compact('data','correct_answers_array_filtered', 'answers_array', 'correct_answers_count', 'question_count'));
+
+    }
+
+    public function create(Request $request)
+    {
+        return view('frontView.create');
+    }
+
     public function store(Request $request)
     {
-        $this->validate($request, [
-                    'Question' => 'required|max:250',
-                    'Option1' => 'required|max:250',
-                    'Option2' => 'required|max:250',
-                    'Option3' => 'required|max:250',
-                    'Option4' => 'required|max:250',
-                    'Answer' => 'required|max:1'
-                ]);
-                return Quiz::create([ 'Question' => request('Question'), 'Option1' => request('Option1'), 'Option2' => request('Option2'), 'Option3' => request('Option3'), 'Option4' => request('Option4'), 'Answer' => request('Answer') ]);
-    }
+        //Get Request Data
+        $data = $request->all();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $quiz = Quiz::findOrFail($id);
-        $quiz->delete();
-        return 204;
-    }
-    public function view()
-        {
-            $quizzes = Quiz::all();
-            return view('frontView.Exam')->with('quizzes',$quizzes);
-
-            // $quizzes =  Quiz::latest()->get();
-            // foreach($quizzes as $quiz)
-            // {
-            //     switch($quiz->Answer)
-            //     {
-            //         case 'A':
-            //             $response[] = array("text"=>$quiz->Question, "responses"=>array(array("text"=>$quiz->Option1,"correct" => true),array("text"=>$quiz->Option2),array("text"=>$quiz->Option3),array("text"=>$quiz->Option4)));
-            //         break;
-            //         case 'B':
-            //             $response[] = array("text"=>$quiz->Question, "responses"=>array(array("text"=>$quiz->Option1),array("text"=>$quiz->Option2,"correct" => true),array("text"=>$quiz->Option3),array("text"=>$quiz->Option4)));
-            //         break;
-            //         case 'C':
-            //             $response[] = array("text"=>$quiz->Question, "responses"=>array(array("text"=>$quiz->Option1),array("text"=>$quiz->Option2),array("text"=>$quiz->Option3,"correct" => true),array("text"=>$quiz->Option4)));
-            //         break;
-            //         case 'D':
-            //             $response[] = array("text"=>$quiz->Question, "responses"=>array(array("text"=>$quiz->Option1),array("text"=>$quiz->Option2),array("text"=>$quiz->Option3),array("text"=>$quiz->Option4,"correct" => true)));
-            //         break;
-            //     }
-            // }
-            
-            
-            // // return response()->Json(array("questions" => $response));
-            // return view('frontView.exam',['questions'=>$quizzes]);
+        //Create Quiz instance
+        $quiz = new Quiz;
+        $quiz->user_id = Auth::user()->id;
+        $quiz->quiz = $data['quiz-name'];
+        $quiz->save();
+        //Create Question Instance
+        foreach ($data['question'] as $question_key => $question) {
+            $question_instance = new Question;
+            $question_instance->quiz_id = $quiz->id;
+            $question_instance->question = $question['question-text'];
+            $question_instance->save();
+            //Create Answer Instance
+            foreach ($question['answers'] as $answer_key => $answer ) {
+                if($answer_key != "is_correct") {
+//                    var_dump($answer_key);
+                    $answer_instance = new Answer;
+                    $answer_instance->question_id = $question_instance->id;
+                    $answer_instance->answer = $answer;
+                    $answer_instance->save();
+                }
+                if($answer_key == 'is_correct'){
+                    //Create CorrectAnswer instance
+                    $correct_answer = CorrectAnswer::create(['question_id' => $question_instance->id, 'answer_id' => $answer_instance->id ]);
+                }
+            }
         }
-    
+        $quizzes = Quiz::all();
+        return view('frontView.index', compact('quizzes'));
+    }
 }
+

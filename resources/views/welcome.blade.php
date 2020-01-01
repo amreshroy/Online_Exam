@@ -33,12 +33,13 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         <section class="maincontent">
         <div class="menu">
         <ul>
+             <li><a href="/">Home</a></li>
             <li><a href="{{ route('login') }}">Login</a></li>
             <!--<li><a href="profile.php">Profile</a></li>
             <li><a href="exam.php">Exam</a></li>-->
             <li><a href="{{ route('register') }}">Registration</a></li>
             <li><a href="/contact-us">Contact</a></li>
-            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/Abouts">About Us</a></li>
         </ul>
         </div>
 
@@ -51,58 +52,9 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
  </section>
 <section class="footeroption">
         <h2><?php echo "Online Exam System"; ?></h2><br/>
-        
-
-  <!--       <div class="fotter_top_area">
-    <div class="container footer">
-        <div class="row">
-
-           <div class="footer_menu">
-               <ul>
-                <li><a href="?m=about_us">About Us</a></li>
-               </ul>
-           </div>   
-           <div class="footer_menu">
-               <ul>
-                <li><a href="?m=contact_us">Contact Us</a></li>
-               </ul>
-           </div>   
-           <div class="footer_menu">
-               <ul>
-                <li><a href="?m=privacy_policy">Privacy Policy</a></li>
-               </ul>
-           </div>   
-           <div class="footer_menu">
-               <ul>
-                <li><a href="?m=terms_cond">Terms & Conditions</a></li>
-               </ul>
-           </div>   
-           
-        </div>
-    </div>
-</div> -->
 
 <footer class="footer">
-        <!-- <div class="container-fluid">
-          <nav>
-            <ul>
-              <li>
-                <a href="https://www.facebook.com">
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a href="http://whatsapp.com">
-                  Whatsapp
-                </a>
-              </li>
-              <li>
-                <a href="http://youtube.com">
-                  Youtube
-                </a>
-              </li>
-            </ul>
-          </nav> -->
+        
           <div class="copyright" id="copyright">
             &copy;
             <script>

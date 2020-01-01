@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -65,22 +66,26 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
  <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <div class="card-header">
+              <!-- <div class="card-header">
                 <h4 class="card-title"> User Profile </h4>
-              </div>
-              <div class="card-body">
-                @foreach($users as $user)
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Name : {{ Auth::user()->name }}</li>
-                  <li class="list-group-item">E-mail : {{ Auth::user()->email }}</li>
-                  <li class="list-group-item">Phone : {{ Auth::user()->phone }}</li>
-                  <li class="list-group-item">Address : {{ Auth::user()->address }}</li>
-                  <li class="list-group-item">Usertype : {{ Auth::user()->usertype }}</li>
-                </ul>
-                <button class="mt-3"><a class="btn btn-info " href="/Profile-edit/{{ $user->id }}">Edit Details</a></button>
-                @endforeach
-                
-              </div>
+              </div> -->
+              <div class="panel-body">
+                      <!-- Display Validation Errors -->
+                  @include('common.errors')
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-6 offset-md-3">
+                                  <h3 class="text-center">Select a Quiz</h3>
+                                  <ul class="list-group">
+                                  @foreach ($quizzes as $quiz)
+                                  <li class="list-group-item"><h3><a href="/quizzes/{{$quiz->id}}">{{$quiz->quiz}}</a></h3></li>
+                                  @endforeach
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
             </div>
           </div>
   </div>

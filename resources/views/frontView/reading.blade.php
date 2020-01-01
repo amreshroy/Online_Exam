@@ -31,10 +31,11 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         <div class="menu">
         <ul>
             
+            <li><a href="{{ url('home') }}">Home</a></li>
             <li><a href="{{ url('Profile') }}">Profile</a></li>
             <li><a href="{{ url('Reading') }}">Reading</a></li>
             <li><a href="{{ url('Practice') }}">Practice</a></li>
-            <li><a href="{{ url('Exam') }}">Exam</a></li>
+            <li><a href="{{ url('quizzes/index') }}">Exam</a></li>
             <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
             <!--<li><a href="logout.php">Logout</a></li>-->
             <li class="nav-item dropdown">

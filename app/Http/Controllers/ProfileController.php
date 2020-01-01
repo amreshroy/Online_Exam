@@ -6,6 +6,7 @@ use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -24,6 +25,7 @@ class ProfileController extends Controller
     {
         $users = Profile::find($id);
         $users->name = $request->input('username');
+        $users->password = $request->input('password');//12.21.19
         $users->usertype = $request->input('usertype');
         $users->update();
 
