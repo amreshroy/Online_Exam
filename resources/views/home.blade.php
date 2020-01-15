@@ -31,7 +31,8 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         <section class="maincontent">
         <div class="menu">
         <ul>
-            <!-- <li><a href="{{ route('login') }}">Home</a></li> -->
+            <li><a class="current" href="{{ url('home') }}">Home</a></li>
+            <!-- <li class="{{ 'dashboard' == request()->path() ? 'active' : '' }}"> -->
             <li><a href="{{ url('Profile') }}">Profile</a></li>
             <li><a href="{{ url('Reading') }}">Reading</a></li>
             <li><a href="{{ url('Practice') }}">Practice</a></li>
@@ -59,7 +60,12 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         </div>
 
 <div class="main">
-  
+  <div class="card">
+      <div class="card header">
+          <h4 class="text-success">Thanks for Creating your Profile</h4>
+          <p>Now you can access your profile details, Reading, Practice, and Exam Section</p>
+      </div>
+  </div>
 
 
     

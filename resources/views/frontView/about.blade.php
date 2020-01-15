@@ -40,7 +40,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
             <li><a href="exam.php">Exam</a></li>-->
             <li><a href="{{ route('register') }}">Registration</a></li>
             <li><a href="/contact-us">Contact</a></li>
-            <li><a href="/Abouts">About Us</a></li>
+            <li><a class="current" href="/Abouts">About Us</a></li>
         </ul>
         </div>
 

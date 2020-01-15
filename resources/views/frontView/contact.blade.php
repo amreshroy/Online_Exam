@@ -38,7 +38,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
             <!--<li><a href="profile.php">Profile</a></li>
             <li><a href="exam.php">Exam</a></li>-->
             <li><a href="{{ route('register') }}">Registration</a></li>
-            <li ><a href="/contact-us">Contact</a></li>
+            <li ><a class="current" href="/contact-us">Contact</a></li>
             <li ><a href="/Abouts">About Us</a></li>
         </ul>
         </div>
@@ -82,7 +82,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+        <button class="btn btn-unique btn btn-outline-info">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
       </div>
     </div>
   </div>
