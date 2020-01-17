@@ -1,15 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.adminMaster')
 
+
+@section('title')
+
+    |Edit Registered Users |
+
+@endsection
 @section('content') 
     <!-- Bootstrap Boilerplate... -->
-    <div class="row">
+    <div class="row"> 
         <div class="col-md-12">
-            <h1 class="text-center">Create a new quiz</h1>
-            <div class="panel-body">
+            <div class="card">
+                <div class="card-header">
+            <h4 class="card-title text-center text-info">Create a new quiz</h4>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div class="table">
                 <!-- Display Validation Errors -->
-            @include('common.errors')
+            <!-- @include('common.errors') -->
             <!-- New Task Form -->
-                <form action="{{ url('quizzes') }}" method="POST" class="form-horizontal">
+                <form action="{{ url('quizzes') }}" method="POST" class="">
+                <!-- <form action="/create-quiz" method="POST" class=""> -->
+                
                 {{ csrf_field() }}
                 <!-- Task Name -->
                     <div class="form-group">
@@ -100,6 +112,10 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
+</div>
 
 
     <script>

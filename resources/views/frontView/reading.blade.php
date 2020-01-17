@@ -32,7 +32,7 @@
             <li><a href="{{ url('home') }}">Home</a></li>
             <li><a href="{{ url('Profile') }}">Profile</a></li>
             <li><a class="current" href="{{ url('Reading') }}">Reading</a></li>
-            <li><a href="{{ url('Practice') }}">Practice</a></li>
+            <li><a href="{{ url('Pquizzes/indexs') }}">Practice</a></li>
             <li><a href="{{ url('quizzes/index') }}">Exam</a></li>
             <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
             <!--<li><a href="logout.php">Logout</a></li>-->

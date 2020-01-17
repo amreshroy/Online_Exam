@@ -15,6 +15,8 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- jquery scripts -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
@@ -45,10 +47,10 @@
               <p>Reading Topic</p>
             </a>
           </li>
-          <li class="{{ '#' == request()->path() ? 'active' : '' }}">
-            <a href="/typography.html">
+          <li class="{{ 'create' == request()->path() ? 'active' : '' }}">
+            <a href="/create">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+              <p>Create Quiz</p>
             </a>
           </li>
           

@@ -32,8 +32,8 @@
               <li><a href="{{ url('home') }}">Home</a></li>
               <li><a href="{{ url('Profile') }}">Profile</a></li>
               <li><a href="{{ url('Reading') }}">Reading</a></li>
-              <li><a href="{{ url('Pquizzes/indexs') }}">Practice</a></li>
-              <li><a class="current" href="{{ url('quizzes/index') }}">Exam</a></li>
+              <li><a class="current" href="{{ url('Pquizzes/indexs') }}">Practice</a></li>
+              <li><a href="{{ url('quizzes/index') }}">Exam</a></li>
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -60,12 +60,12 @@
               @include('common.errors')
               <div class="card">
                 <div class="card-header text-white bg-dark">
-                  <h3 class="text-center">Select a Quiz</h3>
+                  <h3 class="text-center">Select a Practice Quiz</h3>
                 </div>
                   <ul class="list-group">
                     @foreach ($quizzes as $quiz)
                     <li class="list-group-item">
-                      <h3 class="btn btn-outline-warning"><a href="/quizzes/{{$quiz->id}}">{{$quiz->quiz}}</a></h3>
+                      <h3 class="btn btn-outline-warning"><a href="/Pquizzes/{{$quiz->id}}">{{$quiz->quiz}}</a></h3>
                     </li>
                     @endforeach
                   </ul>

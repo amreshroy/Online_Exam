@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Quiz;
-use App\Question;
-use App\Answer;
-use App\CorrectAnswer;
+use App\Practice\Quiz;
+use App\Practice\Question;
+use App\Practice\Answer;
+use App\Practice\CorrectAnswer;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class QuizController extends Controller
+class PracticeController extends Controller
 {
     public function __construct()
     {
@@ -21,12 +21,12 @@ class QuizController extends Controller
     public function index(Request $request)
     {
         $quizzes = Quiz::all();
-        return view('frontView.index', compact('quizzes'));
+        return view('frontView.practice.indexs', compact('quizzes'));
     }
 
     public function show(Quiz $quiz) {
  
-        return view('frontView.show', compact('quiz'));
+        return view('frontView.practice.show', compact('quiz'));
 
     }
 
@@ -49,13 +49,13 @@ class QuizController extends Controller
         }
         $correct_answers_count = count(array_intersect($answers_array, $correct_answers_array_filtered));
 
-        return view('frontView.result', compact('data','correct_answers_array_filtered', 'answers_array', 'correct_answers_count', 'question_count'));
+        return view('frontView.practice.result', compact('data','correct_answers_array_filtered', 'answers_array', 'correct_answers_count', 'question_count'));
 
     }
         //15/01/20
     public function create(Request $request)
     {
-        return view('frontView.create');
+        return view('frontView.practice.create');
     }
 
     public function store(Request $request)
@@ -90,7 +90,7 @@ class QuizController extends Controller
             }
         }
         $quizzes = Quiz::all();
-        return view('frontView.index', compact('quizzes'));
+        return view('frontView.practice.indexs', compact('quizzes'));
     }
 }
 

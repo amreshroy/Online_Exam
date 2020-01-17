@@ -9,7 +9,7 @@
                 <!-- Display Validation Errors -->
             @include('common.errors')
             <!-- New Task Form -->
-                <form action="{{ url('quizzes') }}" method="POST" class="form-horizontal">
+                <form action="{{ url('Pquizzes') }}" method="POST" class="form-horizontal">
                 {{ csrf_field() }}
                 <!-- Task Name -->
                     <div class="form-group">

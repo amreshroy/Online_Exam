@@ -17,7 +17,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Registered User Table</h4>
+                <h4 class="card-title text-center text-warning"> Registered User Table</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">

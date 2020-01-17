@@ -34,8 +34,8 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
             <li><a href="{{ url('home') }}">Home</a></li>
             <li><a href="{{ url('Profile') }}">Profile</a></li>
             <li><a href="{{ url('Reading') }}">Reading</a></li>
-            <li><a href="{{ url('Pquizzes/indexs') }}">Practice</a></li>
-            <li><a class="current"  href="{{ url('quizzes/index') }}">Exam</a></li>
+            <li><a class="current"  href="{{ url('Pquizzes/indexs') }}">Practice</a></li>
+            <li><a href="{{ url('quizzes/index') }}">Exam</a></li>
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -65,10 +65,10 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-dark">
-                                <h1 >{{ $quiz->quiz }}</h1>
+                                <h1 >Practice {{ $quiz->quiz }}</h1>
                             </div>
                             <div class="card-body px-5">
-                                <form method="post" action="{{ url('quizzes/{quiz}') }}">
+                                <form method="post" action="{{ url('Pquizzes/{quiz}') }}">
                                     <input name="invisible" type="hidden" value="{{ $quiz->id }}">
                                    {{ csrf_field() }}
                                    <?php $i = 1 ?>

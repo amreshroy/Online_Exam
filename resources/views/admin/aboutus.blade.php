@@ -50,7 +50,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Reading Contents Table</h4>
+                <h4 class="card-title text-center text-info"> Reading Contents Table</h4>
                 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">Add  Reading Topic</button>
 
                 @if (session('status'))

@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateResponsesTable extends Migration
+class CreatePcorrectAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateResponsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('responses', function (Blueprint $table) {
+        Schema::create('pcorrect_answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('visitor_id')->unsigned()->index();
+            $table->integer('question_id')->unsigned()->index();
             $table->integer('answer_id')->unsigned()->index();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateResponsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('responses');
+        Schema::dropIfExists('correct_answers');
     }
 }

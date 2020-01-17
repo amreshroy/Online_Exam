@@ -36,7 +36,7 @@
                 <li><a href="{{ url('home') }}">Home</a></li>
                 <li><a href="{{ url('Profile') }}">Profile</a></li>
                 <li><a href="{{ url('Reading') }}">Reading</a></li>
-                <li><a href="{{ url('Practice') }}">Practice</a></li>
+                <li><a href="{{ url('Pquizzes/indexs') }}">Practice</a></li>
                 <li><a class="current"  href="{{ url('quizzes/index') }}">Exam</a></li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -63,31 +63,25 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header bg-dark">
-                            <h1 class="">Your Results</h1>
+                            <h1 class="text-danger ">Results</h1>
                         </div>
                         <div class="text-info mx-5 my-2">
-                            <h2><strong>Your Total Mark : {{ $correct_answers_count*5 }} </strong></h2>
+                            <h2><strong>Your Mark : <span class="text-success">{{ $correct_answers_count*5 }}</span> </strong></h2>
                             <p>[ 5 marks for each correct answer ]</p>
                         </div><hr>
                         <div class="card-body mx-4">
                             <h3>You answered {{ $correct_answers_count }} out of {{ $question_count }} correctly</h3>
-
                             <?php $i = 1 ?>
                             @foreach($data as $key => $datum)
-
-                                <!-- @if($key != '_token' && $key != 'invisible') -->
-                                   
+                                @if($key != '_token' && $key != 'invisible')
 
                                    <p style="color:blue">{{App\Question::find($key)->question}}</p>
-
                                    <p style="color:gray">Your guess for question {{$i}} was {{App\Answer::find($datum)->answer}}</p>
 
-                                   <p style="color:green">Currect Answer is : {{App\CorrectAnswer::find($key)->answer}}</p>
+                                   <p id="showanswer" class="text-info px-2" style="display:none;">Answer : {{ $question_count }}</p>
+                                    <button class="btn btn-outline-warning my-2"> Show Answer </button>    
 
-
-                                  
-
-                                    <?php $i++ ?>
+                            <?php $i++ ?>
                                 @endif
                             @endforeach
                             <hr>
@@ -115,8 +109,16 @@
 </div>
 </body>
 </html>
-
-
-
 </div>
+
+    <script>
+
+         $(document).ready(function(){
+
+             $("button").click(function(){
+                 $("p#showanswer").toggle("");
+           });
+       });
+
+    </script>
 @endsection

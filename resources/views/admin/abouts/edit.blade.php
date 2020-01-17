@@ -13,7 +13,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Topic Table-Edit Data</h4>
+                <h4 class="card-title text-center text-info"> Topic Table-Edit Data</h4>
 
        			<form actiom="{{ url('aboutus-update/'.$aboutus->id) }}" method="POST">
        			  {{ csrf_field() }}
